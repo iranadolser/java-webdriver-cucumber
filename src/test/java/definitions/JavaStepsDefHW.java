@@ -4,6 +4,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 
+import java.sql.SQLOutput;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -210,14 +211,14 @@ public class JavaStepsDefHW {
         System.out.println();
         System.out.println("<<<<<< CC >>>>>>>");
 
-        int[] numsToSwap = {5,2,9,7,3};
+        int[] numsToSwap = {5, 2, 9, 7, 3};
         System.out.println("Before swap: ");
         for (int i : numsToSwap) {
             System.out.print(i + " ");
         }
-        numsToSwap[2]=numsToSwap[2]+numsToSwap[4];
-        numsToSwap[4]=numsToSwap[2]-numsToSwap[4];
-        numsToSwap[2]=numsToSwap[2]-numsToSwap[4];
+        numsToSwap[2] = numsToSwap[2] + numsToSwap[4];
+        numsToSwap[4] = numsToSwap[2] - numsToSwap[4];
+        numsToSwap[2] = numsToSwap[2] - numsToSwap[4];
 
         System.out.println();
         System.out.println("After: ");
@@ -227,18 +228,107 @@ public class JavaStepsDefHW {
     }
 
     @And("I check if entered integer {int} is divisible by {int} or {int}")
-    public void iCheckIfEnteredIntegerIsDivisibleByOr(int numerator, int denom1, int denom2){
+    public void iCheckIfEnteredIntegerIsDivisibleByOr(int numerator, int denom1, int denom2) {
 
         System.out.println();
         System.out.println("<<<< Let's divide by 3 or 4 >>>>>");
-        if (numerator % 3 == 0 && numerator % 4 > 0){
+        if (numerator % 3 == 0 && numerator % 4 > 0) {
             System.out.println("numerator is divisible by " + denom1);
         } else if (numerator % 4 == 0 && numerator % 3 != 0) {
             System.out.println(numerator + " is divisible by " + denom2);
-        } else if (numerator % (denom1*denom2) == 0){
+        } else if (numerator % (denom1 * denom2) == 0) {
             System.out.println(numerator + " is divisible by " + denom1 + " and " + denom2);
         } else {
             System.out.println(numerator + " is NOT divisible by " + denom1 + " or " + denom2);
         }
     }
+
+    //Here starts homework 8
+
+    @Then("I print all number from zero up to n = {int}")
+    public void iPrintAllNumberFromZeroUpToN(int numN) {
+
+        System.out.println("\n" + "HERE ARE MY NUMBERS FROM 0 TO n: ");
+        for (int i = 0; i < numN; i++) {
+            System.out.print(i + 1 + " ");
+        }
+        System.out.println();
+    }
+
+    @Then("I print negative numbers n = {int} up to zero")
+    public void iPrintNegativeNumbersNUpToZero(int negNumN) {
+
+        System.out.println("\n" + "HERE ARE MY NUMBERS FROM n TO zero:");
+        for (int i = negNumN; i <= 0; i++) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+    }
+
+    @And("I have to print my integers in array {int} {int} {int} {int} {int}")
+    public void iHaveToPrintMyIntegersInArray(int arr0, int arr1, int arr2, int arr3, int arr4) {
+
+        int[] myArrNums = {arr0, arr1, arr2, arr3, arr4};
+        System.out.println("\n" + "Look at my Array Numbers here");
+        for (int i : myArrNums) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+    }
+
+    @And("I print only even integers from array {int} {int} {int} {int} {int}")
+    public void iPrintOnlyEvenIntegersFromArray(int ar20, int ar21, int ar22, int ar23, int ar24) {
+        int[] myAr2Nums = {ar20, ar21, ar22, ar23, ar24};
+        System.out.println("\n" + "Look at my Even Array Numbers here");
+        for (int i : myAr2Nums) {
+            if (i % 2 == 0)
+                System.out.print(i + " ");
+        }
+        System.out.println();
+
+    }
+
+    @Then("I check if my array is empty")
+    public void iCheckIfArraysIsEmpty() {
+        int[] myArrEmpOrNot = {};
+        //int[] myArrEmpOrNot = {2, 7, 12};
+        System.out.println("\n" + "Is my Array empty one?");
+
+        if (myArrEmpOrNot.length == 0) {
+            System.out.print("myArrEmpOrNot is really empty!" + "\n");
+        } else {
+            System.out.println("Nope, myArrEmpOrNot is not empty at all!" + "\n");
+        }
+    }
+
+    @And("I check if array contains integer {int}")
+    public void iCheckIfArrayContainsInteger(int anotherElement) {
+        System.out.println("\nIs myArrToCheck contains " + anotherElement + "?");
+        int[] myArrToCheck = {1, 10, 0, 110, 100};
+        for (int i : myArrToCheck) {
+            if (i == anotherElement) {
+                System.out.println("Yes, this is true!");
+            }
+        }
+    }
+
+    @Then("I print {int} numbers according to Buzz Fizz rule")
+    public void iPrintNumbersAccordingToBuzzFizzRule(int upToNum) {
+
+        System.out.println("\n <<<< Let's divide by 3 and 5 with Fizz and Buzz >>>>>");
+        for (int i = 1; i < upToNum + 1; i++) {
+            if (i % 3 == 0 && i % 5 != 0) {
+                System.out.print("Fizz ");
+            } else if (i % 5 == 0 && i % 3 != 0) {
+                System.out.print("Buzz ");
+            } else if (i % 15 == 0) {
+                System.out.print("FizBuzz ");
+            } else {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
 }
+
+
