@@ -8,7 +8,7 @@ import java.sql.SQLOutput;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class JavaStepsDefHW {
+public class JavaCCStepsDefs {
     @Given("I say hello world")
     public void iSayHelloWorld() {
         System.out.println(" ");
