@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 import static support.TestContext.getDriver;
 
-public class UnitConvertorStepsDefs {
+public class UnitConverterStepsDefs {
     @Then("I select tab {string} to use")
     public void iSelectTabToUse(String tabName) {
         getDriver().get("https://www.unitconverters.net/");
@@ -37,7 +37,7 @@ public class UnitConvertorStepsDefs {
         getDriver().findElement(By.xpath("//input[@name='fromVal']")).sendKeys(numberToConvert);
         String converted = getDriver().findElement(By.xpath("//div[@id='calResults']")).getText();
         System.out.println("***********");
-        System.out.println(converted);
+        System.out.println(converted + "\n");
 
   }
 }

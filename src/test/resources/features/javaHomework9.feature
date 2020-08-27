@@ -3,12 +3,14 @@ Feature: Java Homework9
 
 
   @javahw9.1
-  Scenario: Unit converters steps
+ Scenario: Unit converters steps
     Given I go to "unitconverters" page
-    Then I click on different tabs
-    And I convert "50" miles to Kilometers
-    Then I convert "54" "F" to "C"
-    And I convert "170" "Pound" to "Kilogram"
+    Then I select tab "Temperature" to use
+    And I do convert "54" "Fahrenheit" to "Celsius"
+    Then I select tab "Weight" to use
+    And I do convert "170" "Pound" to "Kilogram"
+    Then I select tab "Length" to use
+    And I do convert "50" "Mile" to "Kilometer"
 
   @java9.2
   Scenario: Verify calculator results

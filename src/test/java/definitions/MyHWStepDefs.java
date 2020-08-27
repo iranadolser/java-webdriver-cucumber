@@ -176,75 +176,8 @@ public class MyHWStepDefs {
 
     //HW 9 tasks starts here
 
+    //UnitConverterStepsDefs moved to separated file
 
-    @Then("I click on different tabs")
-    public void iClickOnDifferentTabs() {
-
-        WebElement tabLength = getDriver().findElement(By.xpath("//li[@id='menuon']//a[text()='Length']"));
-        tabLength.click();
-        WebElement tabTemperature = getDriver().findElement(By.xpath("//div[@id='menu']//a[text()='Temperature']"));
-        tabTemperature.click();
-        WebElement tabWeight = getDriver().findElement(By.xpath("//div[@id='menu']//a[text()='Weight']"));
-        tabWeight.click();
-    }
-
-    @And("I convert {string} miles to Kilometers")
-    public void iConvertMilesToKilometers(String milesToConvert) {
-        getDriver().get("https://www.unitconverters.net/");
-        getDriver().findElement(By.xpath("//li[@id='menuon']//a[text()='Length']")).click();
-        //tabLength.click();
-        getDriver().findElement(By.xpath("//li[@id='menuon']//a[text()='Length']")).click();
-        getDriver().findElement(By.xpath("//input[@name='fromVal']")).sendKeys(milesToConvert);
-        getDriver().findElement(By.xpath("//select[@id='calFrom']"));
-        Select fromOne = new Select(getDriver().findElement(By.id("calFrom")));
-           fromOne.selectByValue("7");
-        getDriver().findElement(By.xpath("//select[@id='calTo']"));
-        Select toAnother = new Select(getDriver().findElement(By.id("calTo")));
-           toAnother.selectByValue("2");
-        String converted = getDriver().findElement(By.xpath("//div[@id='calResults']")).getText();
-        System.out.println("***********");
-        System.out.println(converted);
-    }
-
-    @Then("I convert {string} {string} to {string}")
-    public void iConvertTo(String numberToConvert, String from, String to) {
-        getDriver().get("https://www.unitconverters.net/");
-        getDriver().findElement(By.xpath("//div[@id='menu']//a[text()='Temperature']"));
-        //tabLength.click();
-        getDriver().findElement(By.xpath("//div[@id='menu']//a[text()='Temperature']")).click();
-        getDriver().findElement(By.xpath("//input[@name='fromVal']")).sendKeys(numberToConvert);
-        getDriver().findElement(By.xpath("//select[@id='calFrom']"));
-        Select fromOne = new Select(getDriver().findElement(By.id("calFrom")));
-        fromOne.selectByValue("3");
-        getDriver().findElement(By.xpath("//select[@id='calTo']"));
-        Select toAnother = new Select(getDriver().findElement(By.id("calTo")));
-        toAnother.selectByValue("1");
-        String converted = getDriver().findElement(By.xpath("//div[@id='calResults']")).getText();
-        System.out.println("***********");
-        System.out.println(converted);
-
-    }
-
-
-    @And("I con And I convert {string} {string} to {string}")
-    public void iConAndIConvertTo(String numberToConvert, String from, String to) {
-        getDriver().get("https://www.unitconverters.net/");
-        getDriver().findElement(By.xpath("//div[@id='menu']//a[text()='Weight']"));
-        //tabLength.click();
-        getDriver().findElement(By.xpath("//div[@id='menu']//a[text()='Weight']")).click();
-        getDriver().findElement(By.xpath("//input[@name='fromVal']")).sendKeys(numberToConvert);
-        getDriver().findElement(By.xpath("//select[@id='calFrom']"));
-        Select fromOne = new Select(getDriver().findElement(By.id("calFrom")));
-        fromOne.selectByValue("7");
-        getDriver().findElement(By.xpath("//select[@id='calTo']"));
-        Select toAnother = new Select(getDriver().findElement(By.id("calTo")));
-        toAnother.selectByValue("1");
-        String converted = getDriver().findElement(By.xpath("//div[@id='calResults']")).getText();
-        System.out.println("***********");
-        System.out.println(converted);
-        System.out.println("***********");
-
-    }
 
     @When("I navigate to {string}")
     public void iNavigateTo(String arg0) {
@@ -280,9 +213,7 @@ public class MyHWStepDefs {
         String noInterestError2 = getDriver().findElement(By.xpath("//*[text()='Please provide a positive interest value.']")).getText();
         assertThat(noInterestError2).containsIgnoringCase(noDataErrorMessage);
 
-
     }
-
     @And("I enter {string} price, {string} months, {string} interest,{string} downpayment, {string} trade-in, {string} state, {string} percent tax,{string}fees")
     public void iEnterPriceMonthsInterestDownpaymentTradeInStatePercentTaxFees(String price, String months, String interest, String downpayment, String tradeIn, String state, String perTax, String fees)
     {
