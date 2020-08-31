@@ -4,7 +4,6 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 
-import java.sql.SQLOutput;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -329,6 +328,69 @@ public class JavaCCStepsDefs {
         }
         System.out.println();
     }
+
+    //Here starts homework 10
+
+    @Given("I input two numbers which are devided by five: numbers are {double} and {double}")
+    public void iInputTwoNumbersWhichAreDevidedByFiveNumbersAreAnd(double num1, double num2) {
+
+        double[] myNums = {num1, num2};
+        System.out.println("**********************");
+
+        for (int i = 0; i < myNums.length; i++) {
+            if (myNums[i] <= 1.0 || myNums[i] > 20.00) {
+                System.out.println(myNums[i] + " is out of range.");
+            } else if (myNums[i] < 10.00) {
+                System.out.println(myNums[i] + " is in the range of 1 - 10 ");
+            } else {
+                System.out.println(myNums[i] + " is in the range of 10 - 20 ");
+            }
+        }
+
+
+    }
+
+    @Then("I add two numbers {double} and {double} and print addition")
+    public void iAddTwoNumbersAndAndPrintAddition(double num1, double num2) {
+        System.out.println("______________________");
+
+        System.out.println("Sum of " + num1 + " and " + num2 + " is " + (num1 + num2));
+    }
+
+
+    /*c:"What challenge did you encounter in Selenium Automation?
+     How did you solve it?"
+     Every time I get challenged by Selenium Automation
+     to locate element or apply method, I read the error messages
+     and debug line by line. Sometimes solutions is found as
+     simple as just changing an order of steps in scenario.*/
+
+
+    @And("I reverse every third character of a string {string}")
+    public void iReverseEveryThirdCharacterOfAString(String toRevThird) {
+        System.out.println("______________________");
+
+        System.out.println("Reversed every third character of " + toRevThird);
+        for (int i = toRevThird.length() - 3; i >= 0; i = i - 3) {
+            System.out.print(toRevThird.charAt(i));
+        }
+        System.out.println();
+    }
+
+    @And("I reverse words in a sentence {string}")
+    public void iReverseWordsInASentence(String senToRev) {
+        System.out.println("______________________");
+        System.out.println(senToRev + "\n is reversed to: ");
+
+        String[] words = senToRev.split(" ");
+        for (int i = words.length - 1; i >= 0; i--) {
+            System.out.print(words[i] + " ");
+        }
+        System.out.println();
+    }
 }
+
+
+
 
 

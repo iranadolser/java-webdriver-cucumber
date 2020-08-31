@@ -17,4 +17,22 @@ Feature: Java HW CC
     And I check if array contains integer 0
     Then I print 20 numbers according to Buzz Fizz rule
 
+  @javahwCC3
+  Scenario: Java coding challenges day 10
+    Given I input two numbers which are devided by five: numbers are 9.9995 and 10.00005
+    Then I add two numbers 0.75 and -9.99 and print addition
+    Then I add two numbers -2147483648.0 and 0.0 and print addition
+    Then I add two numbers -2147483648.0 and 2147483648.0 and print addition
+    Then I add two numbers 0 and 0.000001 and print addition
+    Then I add two numbers -1.0001 and 1.0 and print addition
+    Then I add two numbers 0 and 0.0 and print addition
+    Then I add two numbers 2147483649 and 2147483648.0 and print addition
+    And I reverse every third character of a string "WebDriver"
+    And I reverse words in a sentence "I am Automation Engineer"
+
+
+
+
+
+
 
