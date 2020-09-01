@@ -2,10 +2,7 @@
 package support;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.Platform;
-import org.openqa.selenium.Point;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -18,6 +15,12 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.LocalFileDetector;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
+import org.yaml.snakeyaml.Yaml;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -30,6 +33,21 @@ public class TestContext {
 
     public static WebDriver getDriver() {
         return driver;
+    }
+
+    public static Map<String, String> getData(String fileName) {
+        try {
+            String path = System.getProperty("user.dir") + "/src/test/resources/data/" + fileName + ".yml";
+            var file = new File(path);
+            InputStream stream = new FileInputStream(file);
+            var yaml = new Yaml();
+            return yaml.load(stream);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public JavascriptExecutor getExecutor()	{
+        return	(JavascriptExecutor)	getDriver();
     }
 
     public static void initialize() {

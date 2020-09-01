@@ -37,4 +37,11 @@
       When I navigate to Find a Location page
       And I filter by "Post Ofices" locations types,"Pickup Services", "Accountable Mail" available services
 
+    @usps6
+    Scenario: Every door direct mail
+      Given I go to USPS page
+      When I go to "Every Door Direct Mail" under "Business"
+      And I search for "4970 El Camino Real, Los Altos, CA 94022"
+
+
 
