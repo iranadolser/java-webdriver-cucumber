@@ -30,9 +30,52 @@ Feature: Java HW CC
     And I reverse every third character of a string "WebDriver"
     And I reverse words in a sentence "I am Automation Engineer"
 
+  @javahwCC4
+  Scenario Outline: Java coding challenges day 11.1
+    Given I try to find two max numbers in an array <arg0> <arg1> <arg2> <arg3>
+
+    Examples:
+      | arg0 | arg1 | arg2 | arg3 |
+      | 7    | 25   | 0    | 1    |
+      | 1    | 75   | -999 | 0    |
+      | -1   | -11  | -78  | -5   |
+      | 0    | 99   | 78   | -999 |
+      | -3   | 0    | 0    | 1    |
+
+  @javahwCC4
+  Scenario Outline: Java coding challenges day 11.2
+    Then I write a function that finds if array "<memb1>" "<memb2>" "<memb3>" "<memb4>" "<memb5>" contains duplicates
+    Examples:
+      | memb1 | memb2 | memb3 | memb4 | memb5 |
+      | 3333  | 2222  | 3333  | 7777  | 9999  |
+      | five  | six   | seven | null  | zero  |
+      | one   | two   | three | one   | two   |
 
 
+  @javahwCC4
+  Scenario Outline: Java coding challenges day 11.3
+    Given I write a function that finds if word "<word>" is palindrome
+    Examples:
+      | word                |
+      | radar               |
+      | refer               |
+      | SAIPPUAKIVIKAUPPIAS |
+      | Wow                 |
+      | Oooo                |
+      | Q                   |
+      | radarNOradar        |
+      | radarradar          |
 
-
-
+  @javahwCC4
+  Scenario Outline: Java coding challenges day 11.4
+    Given I write a function that counts number of each character in a string "<string>"
+    #Then I write a function that counts number of each character in a string "<string>"
+    Examples:
+      | string                 |
+      | abracadabra            |
+      | abracadabraabracadabra |
+      | abvgedeika             |
+      | wow                    |
+      | x                      |
+      | ooooooooooooOOOoxyzZ   |
 

@@ -7,13 +7,15 @@ import cucumber.api.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
+import pages.UserInfo;
+import pages.UserLogin;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static support.TestContext.getDriver;
+
 
 
 public class MyHWStepDefs {
@@ -232,7 +234,7 @@ public class MyHWStepDefs {
 
     }
 
-    @Then("I verify montly pay is {string}")
+    @Then("I verify monthly pay is {string}")
     public void iVerifyMontlyPayIs(String montlyPayShown) {
 
         WebElement montlyPay = getDriver().findElement(By.xpath("//h2[text()='Monthly Pay:   $372.86']"));
@@ -241,4 +243,27 @@ public class MyHWStepDefs {
         System.out.println("*****************");
         System.out.println(montlyPayRetrieved + " vs " + montlyPayShown);
     }
+
+    //HW 12 starts here
+
+    @Given("I try to create my classes")
+    public void iTryToCreateMyClasses() {
+
+        UserLogin userLogin = new UserLogin("User Name", "UserLogin", "UserPassword");
+
+        System.out.println("\n"+ "Name: " + userLogin.getName());
+        System.out.println("Login: " + userLogin.getLogin());
+        System.out.println("Password: " + userLogin.getPassword());
+
+        UserInfo userInfo = new UserInfo("User Name", "User Age", true,false);
+
+        System.out.println("\n"+ "Name: " + userInfo.getName());
+        System.out.println("Age: " + userInfo.getAge());
+        System.out.println("Student?: " + userInfo.isStudent());
+        System.out.println("Retired?: " + userInfo.isRetired());
+
+        }
 }
+
+
+

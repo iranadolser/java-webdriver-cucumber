@@ -8,7 +8,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.remote.server.handler.interactions.touch.Scroll;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -16,7 +15,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import static org.assertj.core.api.Assertions.assertThat;
 import static support.TestContext.getDriver;
 
-public class MyUSPSStepDefs {
+public class MyUSPStepDefs {
     @When("I go to Lookup ZIP page by address")
     public void iGoToLookupZIPPageByAddress() throws InterruptedException {
         getDriver().get("https://www.usps.com/");
@@ -188,6 +187,25 @@ public class MyUSPSStepDefs {
         getDriver().findElement(By.xpath("//button[@id='available-service-select']"));
         //To finish later
     }
-}
+
+    @When("I go to {string} under {string}")
+    public void iGoToUnder(String arg0, String arg1) {
+
+        getDriver().findElement(By.xpath("//a[@class='menuitem'][text()='Business']"));
+        WebElement everyDoorDirect = getDriver().findElement(By.xpath("//a[text()='Every Door Direct Mail']"));
+        Actions actions = new Actions(getDriver());
+        actions.moveToElement(everyDoorDirect).perform();
+    }
+
+    @And("I search for {string}")
+    public void iSearchFor(String address) {
+
+            getDriver().findElement(By.xpath("//div[@id='main-inner']"));
+
+
+
+        }
+    }
+
 
 

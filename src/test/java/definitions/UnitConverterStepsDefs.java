@@ -1,13 +1,13 @@
 package definitions;
 
 import cucumber.api.java.en.And;
-import cucumber.api.java.en.Then;
+import cucumber.api.java.en.Given;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 import static support.TestContext.getDriver;
 
 public class UnitConverterStepsDefs {
-    @Then("I select tab {string} to use")
+    @Given("I select tab {string} to use")
     public void iSelectTabToUse(String tabName) {
         getDriver().get("https://www.unitconverters.net/");
 
@@ -35,6 +35,7 @@ public class UnitConverterStepsDefs {
         Select toAnother = new Select(getDriver().findElement(By.id("calTo")));
         toAnother.selectByVisibleText(requestTo);
         getDriver().findElement(By.xpath("//input[@name='fromVal']")).sendKeys(numberToConvert);
+
         String converted = getDriver().findElement(By.xpath("//div[@id='calResults']")).getText();
         System.out.println("***********");
         System.out.println(converted + "\n");
