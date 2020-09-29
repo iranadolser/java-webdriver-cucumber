@@ -11,10 +11,12 @@ import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.LocalFileDetector;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.File;
@@ -38,16 +40,29 @@ public class TestContext {
     public static Map<String, String> getData(String fileName) {
         try {
             String path = System.getProperty("user.dir") + "/src/test/resources/data/" + fileName + ".yml";
-            var file = new File(path);
+            File file = new File(path);
             InputStream stream = new FileInputStream(file);
-            var yaml = new Yaml();
+            Yaml yaml = new Yaml();
             return yaml.load(stream);
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
     }
-    public JavascriptExecutor getExecutor()	{
-        return	(JavascriptExecutor)	getDriver();
+
+    public static WebDriverWait getWait() {
+        return getWait(5);
+    }
+
+    public static WebDriverWait getWait(int timeout) {
+        return new WebDriverWait(driver, timeout);
+    }
+
+    public static Actions getActions() {
+        return new Actions(driver);
+    }
+
+    public static JavascriptExecutor getExecutor() {
+        return (JavascriptExecutor) driver;
     }
 
     public static void initialize() {

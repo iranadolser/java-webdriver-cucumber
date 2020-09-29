@@ -1,3 +1,4 @@
+/*
 package definitions;
 
 import cucumber.api.java.en.And;
@@ -178,14 +179,8 @@ public class MyUSPStepDefs {
         getDriver().findElement(By.xpath("//button[@id='service-type-select']")).click();
         WebElement serviceType = getDriver().findElement(By.xpath("//button[@id='service-type-select'][@value = 'pickup']"));
         serviceType.click();
-        //Select select = new Select(serviceType);
-        //select.selectByValue("pickup");
-        //Actions actions = new Actions(getDriver());
-        //actions.moveToElement(serviceType).perform();
-        //getDriver().findElement(By.xpath("//button[@id='service-type-select'][@value = 'pickup']")).click();
-
         getDriver().findElement(By.xpath("//button[@id='available-service-select']"));
-        //To finish later
+
     }
 
     @When("I go to {string} under {string}")
@@ -197,15 +192,9 @@ public class MyUSPStepDefs {
         actions.moveToElement(everyDoorDirect).perform();
     }
 
-    @And("I search for {string}")
-    public void iSearchFor(String address) {
 
-            getDriver().findElement(By.xpath("//div[@id='main-inner']"));
-
-
-
-        }
     }
 
 
 
+*/

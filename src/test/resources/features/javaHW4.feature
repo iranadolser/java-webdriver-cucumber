@@ -6,7 +6,6 @@
     Scenario: Hellow World
       Given I say hello world
       And I manipulate with "my var" and "my Var"
-
     @javahw4.2
     Scenario: Print To Uppercase
       Then I print "my var" and "my Var" uppercase
